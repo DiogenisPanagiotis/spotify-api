@@ -1,0 +1,87 @@
+.app {
+  font-family: Roboto;
+}
+
+.search {
+  display: inline-block;
+  margin: 0px auto;
+  height: 35px;
+  width: 100%;
+  padding-left: 4px;
+  box-sizing: border-box;
+}
+
+.filter, .sort {
+  display: inline-block;
+  height: 35px;
+  width: 100%;
+  margin: 10px 0px;
+}
+
+.sort {
+  margin-top: 0px;
+}
+
+.subtitle {
+  font-size: 20px;
+  text-align: left;
+  padding: 20px 0px;
+  font-weight: 600;
+}
+
+.subtitle::first-letter {
+  text-transform: capitalize;
+}
+
+.container-results, .container-search {
+  margin: 0% 35%;
+}
+
+.container-search {
+  margin-top: 50px;
+}
+
+.result {
+  padding: 25px;
+  border: solid 1px #eee;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.result-image {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.result-album, .result-artist, .result-date {
+  font-size: 16px;
+  text-align: left;
+  padding: 8px;
+}
+
+.result-album {
+  font-weight: 600;
+}
+
+.submit {
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  text-align: center;
+  background-color: #1BB954;
+  color: #fff;
+}
+
+.submit:hover {
+  background-color: #1ED760;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .container-results, .container-search {
+    margin: 10%;
+  }
+}
