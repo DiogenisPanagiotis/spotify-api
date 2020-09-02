@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/spotify/static/css/main.17c0623c.chunk.css",
-    "main.js": "/spotify/static/js/main.0fcf24c5.chunk.js",
-    "main.js.map": "/spotify/static/js/main.0fcf24c5.chunk.js.map",
-    "runtime-main.js": "/spotify/static/js/runtime-main.ba0f994b.js",
-    "runtime-main.js.map": "/spotify/static/js/runtime-main.ba0f994b.js.map",
-    "static/js/2.6d4bc5bf.chunk.js": "/spotify/static/js/2.6d4bc5bf.chunk.js",
-    "static/js/2.6d4bc5bf.chunk.js.map": "/spotify/static/js/2.6d4bc5bf.chunk.js.map",
-    "index.html": "/spotify/index.html",
-    "precache-manifest.3db054bf2e66746bb6aa5c7323a16ad1.js": "/spotify/precache-manifest.3db054bf2e66746bb6aa5c7323a16ad1.js",
-    "service-worker.js": "/spotify/service-worker.js",
-    "static/css/main.17c0623c.chunk.css.map": "/spotify/static/css/main.17c0623c.chunk.css.map",
-    "static/js/2.6d4bc5bf.chunk.js.LICENSE.txt": "/spotify/static/js/2.6d4bc5bf.chunk.js.LICENSE.txt"
+    "main.css": "/spotify-api/static/css/main.17c0623c.chunk.css",
+    "main.js": "/spotify-api/static/js/main.c96f669e.chunk.js",
+    "main.js.map": "/spotify-api/static/js/main.c96f669e.chunk.js.map",
+    "runtime-main.js": "/spotify-api/static/js/runtime-main.7f15769c.js",
+    "runtime-main.js.map": "/spotify-api/static/js/runtime-main.7f15769c.js.map",
+    "static/js/2.6d4bc5bf.chunk.js": "/spotify-api/static/js/2.6d4bc5bf.chunk.js",
+    "static/js/2.6d4bc5bf.chunk.js.map": "/spotify-api/static/js/2.6d4bc5bf.chunk.js.map",
+    "index.html": "/spotify-api/index.html",
+    "precache-manifest.65445dbab557f66aa4cd96d56c7d67ca.js": "/spotify-api/precache-manifest.65445dbab557f66aa4cd96d56c7d67ca.js",
+    "service-worker.js": "/spotify-api/service-worker.js",
+    "static/css/main.17c0623c.chunk.css.map": "/spotify-api/static/css/main.17c0623c.chunk.css.map",
+    "static/js/2.6d4bc5bf.chunk.js.LICENSE.txt": "/spotify-api/static/js/2.6d4bc5bf.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ba0f994b.js",
+    "static/js/runtime-main.7f15769c.js",
     "static/js/2.6d4bc5bf.chunk.js",
     "static/css/main.17c0623c.chunk.css",
-    "static/js/main.0fcf24c5.chunk.js"
+    "static/js/main.c96f669e.chunk.js"
   ]
 }
