@@ -58,7 +58,7 @@ class App extends Component {
 					const date = release_date ? `${release_date.split('-')[0]}` : null;
 					return (
 						<div className="result" key={key}>
-							<img className="result-image" src={href} />
+							<img className="result-image" src={href} alt="" />
 							<div className="result-album">{name}</div>
 							{artist ? <div className="result-artist">{artist}</div> : ''}
 							{release_date ? <div className="result-date">{date}</div> : ''}

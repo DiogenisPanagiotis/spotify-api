@@ -12,6 +12,12 @@
   height: 100px;
   width: 100px;
   margin-top: 50px;
+  transition: 2s ease-in-out;
+}
+
+.logo:hover {
+  transform: rotate(360deg);
+  cursor: pointer;
 }
 
 .search {
