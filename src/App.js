@@ -1,67 +1,32 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import qs from 'qs';
+import { getAuth } from './utilities';
 import './App.css';
-
-const clientId = '4e2a6912b9e045808dbca2542fdf923c';
-const clientSecret = '63fd10cdcb314cacb362454eacd4b803';
 
 class App extends Component {
   	constructor() {
 		super();
 		this.state = {
 			input: '',
-			token: '',
 			type: 'album',
 			results: [],
 		}
 	}
 
-	componentDidMount = () => {
-		this.getAuth();
-	}
-
-	getAuth = async () => {
-
-		const headers = {
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/x-www-form-urlencoded',
-		  	},
-		  	auth: {
-				username: clientId,
-				password: clientSecret,
-		  	},
-		};
-
-		const data = {
-			grant_type: 'client_credentials',
-		};
-
-		try {
-			const response = await axios.post(
-				'https://accounts.spotify.com/api/token',
-				qs.stringify(data),
-				headers
-		  	);
-		  	this.setState({ token: response.data.access_token });
-		} catch (error) {
-			console.log(error);
-		}
-
-	};
-
 	handleSubmit = () => {
-		const { input, token, type } = this.state;
+		const { input, type } = this.state;
 		if (!input) return;
-		fetch(`https://api.spotify.com/v1/search?access_token=${token}&q=${input}&type=${type}&limit=10&market=US`)
+		getAuth().then((token) => {
+			console.log(token)
+			fetch(`https://api.spotify.com/v1/search?access_token=${token}&q=${input}&type=${type}&limit=10&market=US`)
 			.then(res => res.json())
 			.then(data => {
-				console.log(data[`${type}s`].items)
+				console.log(data)
+				const type = Object.keys(data)[0];
 				this.setState({
-					results: data[`${type}s`].items,
+					results: data[type].items,
 				});
-			})
+			});
+		})
 	}
 
 	handleInput = (e) => {
@@ -88,7 +53,7 @@ class App extends Component {
 				{results.map((result, key) => {
 					const data = result.album ? result.album : result ;
 					const { artists, images, name, release_date } = data;
-					const href = images[0].url;
+					const href = images.length ? images[0].url : 'https://via.placeholder.com/300/eee/eee';
 					const artist = artists ? artists[0].name : null;
 					const date = release_date ? `${release_date.split('-')[0]}` : null;
 					return (
@@ -105,11 +70,14 @@ class App extends Component {
 	}
 
   	render() {
-		const { type } = this.state;
-		const results = this.renderResults();
+		const { results } = this.state;
+		const resultsList = this.renderResults();
+		const resultsContainerClass = results.length ? 'container' : 'container-hide';
+		const searchContainerClass = results.length ? 'container' : 'container-ascend';
     	return (
 			<div className="app">
-				<div className="container-search">
+				<div className={searchContainerClass}>
+					<img className="logo" src="https://i.ibb.co/CJF0wnD/s.png" alt="" />
 					<div className="subtitle">Search</div>
 					<input
 						placeholder="Artists, Albums, Songs"
@@ -124,13 +92,13 @@ class App extends Component {
 					</select>
 					<div className="submit" onClick={this.handleSubmit}>Search</div>
 				</div>
-				<div className="container-results">
+				<div className={resultsContainerClass}>
 					<div className="subtitle">Results</div>
 					<select className="sort" onChange={this.handleSort}>
 						<option value='album'>Ascending</option>
 						<option value='artist'>Descending</option>
 					</select>
-					{results}
+					{resultsList}
 				</div>
 			</div>
         );
